@@ -91,6 +91,16 @@
     white-space: nowrap;
   }
 
+  .nav-wordmark-verse {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-size: clamp(0.78rem, 1.1vw, 0.98rem) !important;
+    letter-spacing: 0.18em !important;
+    color: rgba(168,154,82,0.38) !important;
+    text-transform: uppercase !important;
+  }
+
   .nav-links {
     display: flex;
     align-items: center;
@@ -3206,6 +3216,245 @@
   .v5s-foot-contact { font-family:'DM Sans',sans-serif; font-size:0.3rem; color:rgba(255,255,255,0.28); margin-top:0.18rem; }
   .v5s-foot-copy { font-family:'DM Sans',sans-serif; font-size:0.28rem; color:rgba(255,255,255,0.2); text-align:right; align-self:flex-end; }
 
+  /* ═══════════════════════════════════════════════
+     ABOUT / MISSION SECTION
+  ═══════════════════════════════════════════════ */
+  .about-section {
+    background: #0f1412;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-section-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 92% 8%,  rgba(168,154,82,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 55% at 6% 85%,  rgba(2,115,97,0.09)   0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .about-content {
+    padding: 8rem 4rem 6rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-section .section-label { color: var(--olive-mid); }
+  .about-section .section-label::before { background: var(--olive-mid); }
+
+  .about-lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--charcoal);
+    max-width: 740px;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body {
+    font-size: 1.0625rem;
+    color: var(--warm-gray);
+    max-width: 640px;
+    line-height: 1.8;
+  }
+
+  /* ── Scripture Callout ── */
+  .scripture-block {
+    border-top: 1px solid rgba(168,154,82,0.15);
+    border-bottom: 1px solid rgba(168,154,82,0.15);
+    padding: 4rem 4rem;
+    margin: 5rem 0;
+    text-align: center;
+    position: relative;
+    background: rgba(2,115,97,0.04);
+  }
+
+  .scripture-block::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10rem;
+    color: rgba(168,154,82,0.09);
+    position: absolute;
+    top: -1.5rem;
+    left: 3rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .scripture-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(240,236,224,0.85);
+    line-height: 1.7;
+    max-width: 760px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+  }
+
+  .scripture-cite {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+  }
+
+  /* ── Core Values Grid ── */
+  .about-values-label {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .about-value-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .about-value-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, rgba(168,154,82,0.65), transparent 70%);
+    border-radius: 6px 6px 0 0;
+  }
+
+  .about-value-card:hover {
+    border-color: rgba(168,154,82,0.18);
+    background: rgba(168,154,82,0.03);
+  }
+
+  .about-value-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: rgba(168,154,82,0.15);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .about-value-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.25;
+    margin-bottom: 0.85rem;
+  }
+
+  .about-value-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(240,236,224,0.52);
+    line-height: 1.75;
+  }
+
+  /* ── Mission Hero ── */
+  .mission-hero {
+    background: #07130f;
+    padding: 8rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mission-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 60%, rgba(2,115,97,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(168,154,82,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(168,154,82,0.06) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .mission-kicker {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--olive-light);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    position: relative;
+  }
+
+  .mission-kicker::before, .mission-kicker::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--olive-light);
+  }
+
+  .mission-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 5.5vw, 5rem);
+    font-weight: 600;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+    max-width: 860px;
+    margin: 0 auto 1.75rem;
+    position: relative;
+  }
+
+  .mission-headline em {
+    font-style: italic;
+    color: var(--olive);
+  }
+
+  .mission-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    font-weight: 300;
+    color: rgba(240,236,224,0.45);
+    line-height: 1.8;
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* ── About responsive ── */
+  @media (max-width: 900px) {
+    .about-content { padding: 6rem 1.5rem 4rem; }
+    .about-values-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .scripture-block { padding: 2.5rem 1.5rem; margin: 3rem 0; }
+    .scripture-block::before { font-size: 6rem; left: 1rem; }
+    .mission-hero { padding: 6rem 1.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .about-values-grid { grid-template-columns: 1fr; }
+    .mission-hero { padding: 5rem 1.5rem; }
+    .mission-headline { font-size: clamp(2rem, 9vw, 3.2rem); line-height: 1.12; }
+    .mission-headline br { display: none; }
+    .mission-sub { font-size: 0.9375rem; }
+    .mission-kicker { font-size: 0.65rem; }
+  }
+
   /* ════════════════════════════════════════════
      MOBILE NAVIGATION — hamburger + overlay menu
   ════════════════════════════════════════════ */
@@ -3363,19 +3612,28 @@
   <div class="nav-wordmark-banner" aria-label="Olive Branch Technologies">
     <div class="nav-wordmark-track" aria-hidden="true">
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
       <span>Olive Branch Technologies</span>
+      <span class="nav-wordmark-verse">Genesis 8:11</span>
     </div>
   </div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#partnership">Partnership</a></li>
     <li><a href="#process">Process</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="https://calendly.com/isaacpaulyeaman" class="nav-cta" target="_blank" rel="noopener">Book a Call</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -3390,6 +3648,7 @@
   <a href="#services" class="mobile-nav-link">Services</a>
   <a href="#partnership" class="mobile-nav-link">Partnership</a>
   <a href="#process" class="mobile-nav-link">Process</a>
+  <a href="#about" class="mobile-nav-link">About</a>
   <div class="mobile-menu-divider"></div>
   <a href="https://calendly.com/isaacpaulyeaman" class="mobile-cta-link" target="_blank" rel="noopener">Book a Call &nbsp;→</a>
 </div>
@@ -3910,7 +4169,7 @@
           </div>
           <div class="chat-typing" id="ct1"><span></span><span></span><span></span></div>
           <div class="chat-msg us" id="cm2">
-            <div class="chat-bubble">That's exactly where we start — no jargon, just a conversation about your goals and who your customers are.</div>
+            <div class="chat-bubble">That's exactly where we begin. Every project starts with understanding your business, your goals, and who you're trying to reach.</div>
             <div class="chat-sender">Isaac</div>
           </div>
           <div class="chat-msg them" id="cm3">
@@ -3919,7 +4178,7 @@
           </div>
           <div class="chat-typing" id="ct2"><span></span><span></span><span></span></div>
           <div class="chat-msg us" id="cm4">
-            <div class="chat-bubble">Perfect — visibility + credibility. We'll build around that. I'll have a design direction to you within 48 hours.</div>
+            <div class="chat-bubble">That's a strong foundation — making your business easy to find and compelling to explore. I'll have an initial design direction over to you within 48 hours.</div>
             <div class="chat-sender">Isaac</div>
           </div>
         </div>
@@ -5703,6 +5962,75 @@
 </section>
 
 
+
+<!-- ABOUT / MISSION -->
+<section class="about-section" id="about">
+  <div class="about-section-bg"></div>
+
+  <!-- Mission Hero — the opening punchline -->
+  <div class="mission-hero">
+    <div class="mission-kicker">Our Mission</div>
+    <h2 class="mission-headline">Advance the <em>Kingdom of Heaven</em><br>through servant-hearted work.</h2>
+    <p class="mission-sub">Strategic website development, meaningful business partnerships, and service rooted in excellence, integrity, and stewardship — this is what we are called to do.</p>
+  </div>
+
+  <div class="about-content">
+    <!-- Intro -->
+    <div class="section-label fade-in">About</div>
+    <span class="gold-rule"></span>
+    <p class="about-lead fade-in">At Olive Branch Technologies, we believe a website should be more than simply an online presence — it should serve as a professional and meaningful extension of your business, your mission, and the people you serve.</p>
+    <p class="about-body fade-in">Inspired by the olive branch throughout Scripture — a symbol of peace, renewal, hope, and faithful stewardship — we are committed to helping local businesses grow with clarity, excellence, and purpose.</p>
+
+    <!-- Scripture -->
+    <blockquote class="scripture-block fade-in">
+      <p class="scripture-text">"And the dove came in to him in the evening; and, lo, in her mouth was an olive leaf pluckt off: so Noah knew that the waters were abated from off the earth."</p>
+      <cite class="scripture-cite">— Genesis 8:11 &nbsp;·&nbsp; King James Version</cite>
+    </blockquote>
+
+    <!-- Core Values -->
+    <div class="section-label about-values-label fade-in">Our Core Values</div>
+    <div class="about-values-grid">
+
+      <div class="about-value-card fade-in">
+        <div class="about-value-num">01</div>
+        <h4 class="about-value-title">Excellence Without Compromise</h4>
+        <p class="about-value-body">We are committed to delivering high-quality, professionally designed websites tailored to the unique goals, identity, and long-term vision of each business we serve. Every project is developed with intentionality, performance, functionality, and growth in mind.</p>
+      </div>
+
+      <div class="about-value-card fade-in">
+        <div class="about-value-num">02</div>
+        <h4 class="about-value-title">Purpose-Driven Growth</h4>
+        <p class="about-value-body">We believe businesses have the opportunity to make a meaningful impact within their communities. Our goal is to help organizations grow into all that their owners, teams, and stakeholders feel called by the Lord to pursue — with integrity, wisdom, and excellence.</p>
+      </div>
+
+      <div class="about-value-card fade-in">
+        <div class="about-value-num">03</div>
+        <h4 class="about-value-title">Accessibility for Local Businesses</h4>
+        <p class="about-value-body">A strong digital presence should not be limited to large corporations. We strive to provide value-driven pricing that enables local businesses, ministries, and entrepreneurs to access professional design, strategy, and optimization services that support long-term success.</p>
+      </div>
+
+      <div class="about-value-card fade-in">
+        <div class="about-value-num">04</div>
+        <h4 class="about-value-title">Partnership Over Transactions</h4>
+        <p class="about-value-body">We view our client relationships as long-term partnerships rather than one-time projects. Through ongoing support, strategy meetings, analytics reviews, and continuous optimization efforts, we work alongside businesses to help them grow and adapt over time.</p>
+      </div>
+
+      <div class="about-value-card fade-in">
+        <div class="about-value-num">05</div>
+        <h4 class="about-value-title">Stewardship Through Analytics</h4>
+        <p class="about-value-body">We believe informed decisions lead to sustainable growth. Through diligent reporting, performance tracking, SEO monitoring, and strategic consultations, we help clients better understand their digital performance and identify opportunities for continued improvement.</p>
+      </div>
+
+      <div class="about-value-card fade-in">
+        <div class="about-value-num">06</div>
+        <h4 class="about-value-title">Integrity &amp; Service</h4>
+        <p class="about-value-body">We are committed to serving every client with honesty, professionalism, diligence, and genuine care. Our goal is to build solutions that strengthen businesses, support the communities they serve, and create lasting impact through meaningful partnership.</p>
+      </div>
+
+    </div><!-- /about-values-grid -->
+  </div><!-- /about-content -->
+
+</section>
 
 <!-- CTA -->
 <section class="cta-section" id="contact">
