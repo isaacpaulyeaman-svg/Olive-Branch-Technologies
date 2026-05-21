@@ -3368,73 +3368,135 @@
 
   /* ── Mission Hero ── */
   .mission-hero {
-    background: #07130f;
-    padding: 8rem 4rem;
+    background: #050e0b;
+    padding: 9rem 4rem 8rem;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
 
+  /* Layered radial glows */
   .mission-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 70% 60% at 50% 60%, rgba(2,115,97,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 20% 20%, rgba(168,154,82,0.07) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(168,154,82,0.06) 0%, transparent 55%);
+      radial-gradient(ellipse 80% 55% at 50% 55%, rgba(2,115,97,0.22) 0%, transparent 62%),
+      radial-gradient(ellipse 35% 45% at 15% 15%, rgba(168,154,82,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 35% 45% at 85% 85%, rgba(168,154,82,0.07) 0%, transparent 55%);
     pointer-events: none;
   }
 
+  /* Thin gold top border */
+  .mission-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(168,154,82,0.3) 30%, rgba(168,154,82,0.3) 70%, transparent);
+  }
+
+
   .mission-kicker {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 500;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--olive-light);
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 1rem;
     position: relative;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s,
+                transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s;
   }
-
   .mission-kicker::before, .mission-kicker::after {
     content: '';
     display: block;
-    width: 40px;
+    width: 48px;
     height: 1px;
-    background: var(--olive-light);
+    background: linear-gradient(to right, transparent, var(--olive-light));
+  }
+  .mission-kicker::after {
+    background: linear-gradient(to left, transparent, var(--olive-light));
   }
 
   .mission-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.6rem, 5.5vw, 5rem);
+    font-size: clamp(2.8rem, 5.8vw, 5.25rem);
     font-weight: 600;
-    line-height: 1.06;
-    letter-spacing: -0.01em;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
     color: var(--charcoal);
-    max-width: 860px;
-    margin: 0 auto 1.75rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
     position: relative;
+    text-wrap: balance;
   }
-
   .mission-headline em {
     font-style: italic;
     color: var(--olive);
   }
 
+  /* Individual chunk animations */
+  .mh-line {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(52px);
+    transition: opacity 1s cubic-bezier(0.16,1,0.3,1),
+                transform 1.15s cubic-bezier(0.16,1,0.3,1);
+  }
+  /* Force line break on desktop — block still supports transform */
+  .mission-break.mh-line { display: block; }
+  /* Re-inline on mobile so text flows naturally */
+  @media (max-width: 600px) {
+    .mission-break.mh-line { display: inline-block; }
+  }
+  .mission-hero.visible .mh-line:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.25s; }
+  .mission-hero.visible .mh-line:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.46s; }
+  .mission-hero.visible .mh-line:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.67s; }
+
   .mission-sub {
     font-family: 'DM Sans', sans-serif;
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
     font-weight: 300;
-    color: rgba(240,236,224,0.45);
-    line-height: 1.8;
-    max-width: 580px;
+    color: rgba(240,236,224,0.4);
+    line-height: 1.85;
+    max-width: 540px;
     margin: 0 auto;
     position: relative;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s,
+                transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s;
+  }
+
+  /* Triggered when .visible is added by IntersectionObserver */
+  .mission-hero.visible .mission-kicker {
+    opacity: 1;
+    transform: none;
+  }
+  .mission-hero.visible .mission-headline {
+    opacity: 1;
+    transform: none;
+  }
+  .mission-hero.visible .mission-sub {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Continuous glow on Kingdom of Heaven once in */
+  @keyframes missionGlowPulse {
+    0%,100% { text-shadow: none; }
+    50%     { text-shadow: 0 0 60px rgba(2,115,97,0.5), 0 0 120px rgba(2,115,97,0.18); }
+  }
+  .mission-hero.visible .mission-headline em {
+    animation: missionGlowPulse 4s ease-in-out 1.6s infinite;
   }
 
   /* ── About responsive ── */
@@ -3443,16 +3505,16 @@
     .about-values-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
     .scripture-block { padding: 2.5rem 1.5rem; margin: 3rem 0; }
     .scripture-block::before { font-size: 6rem; left: 1rem; }
-    .mission-hero { padding: 6rem 1.5rem; }
+    .mission-hero { padding: 6rem 1.5rem 5rem; }
   }
 
   @media (max-width: 600px) {
     .about-values-grid { grid-template-columns: 1fr; }
-    .mission-hero { padding: 5rem 1.5rem; }
-    .mission-headline { font-size: clamp(2rem, 9vw, 3.2rem); line-height: 1.12; }
-    .mission-headline br { display: none; }
-    .mission-sub { font-size: 0.9375rem; }
-    .mission-kicker { font-size: 0.65rem; }
+    .mission-hero { padding: 5rem 1.5rem 4rem; }
+    .mission-headline { font-size: clamp(2.1rem, 9vw, 3.2rem); line-height: 1.14; }
+    .mission-sub { font-size: 0.9rem; }
+    .mission-kicker { font-size: 0.62rem; letter-spacing: 0.18em; }
+    .mission-kicker::before, .mission-kicker::after { width: 28px; }
   }
 
   /* ════════════════════════════════════════════
@@ -5970,7 +6032,9 @@
   <!-- Mission Hero — the opening punchline -->
   <div class="mission-hero">
     <div class="mission-kicker">Our Mission</div>
-    <h2 class="mission-headline">Advance the <em>Kingdom of Heaven</em><br>through servant-hearted work.</h2>
+    <h2 class="mission-headline">
+      <span class="mh-line">Advance the</span> <em class="mh-line">Kingdom of Heaven</em><span class="mh-line mission-break"> through servant-hearted work.</span>
+    </h2>
     <p class="mission-sub">Strategic website development, meaningful business partnerships, and service rooted in excellence, integrity, and stewardship — this is what we are called to do.</p>
   </div>
 
@@ -6168,6 +6232,19 @@ const nav = document.querySelector('nav');
 window.addEventListener('scroll', ()=>{
   nav.classList.toggle('scrolled', window.scrollY > 60);
 }, {passive:true});
+
+/* ════ MISSION HERO REVEAL ════ */
+(function(){
+  const hero = document.querySelector('.mission-hero');
+  if(!hero) return;
+  const io = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting){
+      hero.classList.add('visible');
+      io.disconnect();
+    }
+  }, { threshold: 0.08 });
+  io.observe(hero);
+})();
 
 /* ════ HAMBURGER MOBILE MENU ════ */
 (function(){
