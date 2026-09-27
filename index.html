@@ -982,6 +982,51 @@
     margin-bottom: 1.25rem;
   }
 
+  /* SOFTWARE */
+  .software-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .software-card {
+    border: 1px solid rgba(168,154,82,0.25);
+    border-radius: 4px;
+    padding: 2.25rem 2rem;
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .software-card:hover {
+    border-color: var(--olive-light);
+    transform: translateY(-3px);
+  }
+
+  .software-card-num {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .software-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .software-card p {
+    font-size: 0.9375rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .software-grid { grid-template-columns: 1fr; }
+  }
+
   /* CTA */
   .cta-section {
     padding: 10rem 4rem;
@@ -3694,6 +3739,7 @@
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#partnership">Partnership</a></li>
+    <li><a href="#software">Software</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="https://calendly.com/isaacpaulyeaman" class="nav-cta" target="_blank" rel="noopener">Book a Call</a></li>
@@ -3709,6 +3755,7 @@
 <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
   <a href="#services" class="mobile-nav-link">Services</a>
   <a href="#partnership" class="mobile-nav-link">Partnership</a>
+  <a href="#software" class="mobile-nav-link">Software</a>
   <a href="#process" class="mobile-nav-link">Process</a>
   <a href="#about" class="mobile-nav-link">About</a>
   <div class="mobile-menu-divider"></div>
@@ -4130,6 +4177,37 @@
           <p>Expanding your proof by showcasing the craftsmanship and reputation you've built through real client results.</p>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SOFTWARE -->
+<section class="section" id="software">
+  <div class="section-label">Software</div>
+  <span class="gold-rule"></span>
+  <h2>Tools built around<br>how <em>you</em> work.</h2>
+  <p class="section-intro">Beyond websites, we build custom software that saves your team time, connects your systems, and gives you a clearer view of your business.</p>
+
+  <div class="software-grid">
+    <div class="software-card fade-up">
+      <div class="software-card-num">01</div>
+      <h4>Custom Web Applications</h4>
+      <p>Booking systems, quoting tools, and internal apps designed for your exact workflow, not a one-size-fits-all template.</p>
+    </div>
+    <div class="software-card fade-up">
+      <div class="software-card-num">02</div>
+      <h4>Business Automation</h4>
+      <p>Automate repetitive tasks like follow-ups, scheduling, and data entry so you can spend more time on the work that matters.</p>
+    </div>
+    <div class="software-card fade-up">
+      <div class="software-card-num">03</div>
+      <h4>Client Portals &amp; Dashboards</h4>
+      <p>Give customers a place to track projects and give yourself a live view of leads, jobs, and performance.</p>
+    </div>
+    <div class="software-card fade-up">
+      <div class="software-card-num">04</div>
+      <h4>Integrations</h4>
+      <p>Connect the tools you already use, from CRMs and calendars to payments and email, so information flows without the copy and paste.</p>
     </div>
   </div>
 </section>
